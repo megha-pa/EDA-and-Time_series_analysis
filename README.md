@@ -1,6 +1,6 @@
-##Links
-##This repository tells about how we can do EDA and perform forecasting on timeseries data.
-##What is timeseries?
+#Links
+#This repository tells about how we can do EDA and perform forecasting on timeseries data.
+#What is timeseries?
 A time series is nothing but a sequence of various data points that occurred in a successive order for a given period of time.
 ##Components of Time Series Analysis
 Trend: In which there is no fixed interval and any divergence within the given dataset is a continuous timeline. The trend would be Negative or Positive or Null Trend
