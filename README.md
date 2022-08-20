@@ -38,7 +38,16 @@ Let’s discuss quickly how to convert Non- stationary into stationary for effec
 Yt= Yt – Yt-1
 Yt=Value with time
 3 Transformation: This includes three different methods they are Power Transform, Square Root, and Log Transfer., most commonly used one is Log Transfer.
-
+## Models in Time Series
+1.Auto Arima
+2.SARIMA
+3.ARIMA
+4.ARMA
+5.MA
+6.Simple Exponential Smoothing
+7.Double Exponential Smoothing
+8.Triple Exponential Smoothing
+9.FB prophet
 ## 1.Simple Moving Average(smoothening algorithm):https://www.youtube.com/watch?v=ECBHH0J2N1A&t=1s
 Simple moving average we use rolling window to calulate the next values ex if window size is 2 we take first 2 values and put that as result in 3 value and window go on moving to next value.
 rolling function is used to do MA where we need to add window size and periods where window size is how many values to select for calculating ma and min periods to select how many initial values to keep as NAN.
@@ -61,4 +70,6 @@ df_tesla['EMA_5days']=df_tesla['Open'].ewm(span=5).mean()##to give multiplier ef
 
 ## ARIMA
 Auto Regressive Integrated Moving Average
+https://www.machinelearningplus.com/time-series/arima-model-time-series-forecasting-python/
+
 
