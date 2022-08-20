@@ -57,5 +57,8 @@ df_tesla['EMA_0.1']=df_tesla['Open'].ewm(alpha=0.1,adjust=False).mean()##alpha i
 
 ## 4 EWMA-Exponential Weighted Moving Average
 https://www.wallstreetmojo.com/ewma/
+df_tesla['EMA_5days']=df_tesla['Open'].ewm(span=5).mean()##to give multiplier effect make it as EWMA
 
+## ARIMA
+Auto Regressive Integrated Moving Average
 
