@@ -1,13 +1,13 @@
-#Links
-#This repository tells about how we can do EDA and perform forecasting on timeseries data.
-#What is timeseries?
+##
+#### This repository tells about how we can do EDA and perform forecasting on timeseries data.
+## What is timeseries?
 A time series is nothing but a sequence of various data points that occurred in a successive order for a given period of time.
-##Components of Time Series Analysis
+## Components of Time Series Analysis
 Trend: In which there is no fixed interval and any divergence within the given dataset is a continuous timeline. The trend would be Negative or Positive or Null Trend
 Seasonality: In which regular or fixed interval shifts within the dataset in a continuous timeline. Would be bell curve or saw tooth
 Cyclical: In which there is no fixed interval, uncertainty in movement and its pattern
 Irregularity: Unexpected situations/events/scenarios and spikes in a short time span.
-##What are the limitations of Time Series Analysis?
+## What are the limitations of Time Series Analysis?
 Time series has the below-mentioned limitations, we have to take care of those during our analysis,
 Similar to other models, the missing values are not supported by TSA
 The data points must be linear in their relationship.
