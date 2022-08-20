@@ -38,3 +38,16 @@ Let’s discuss quickly how to convert Non- stationary into stationary for effec
 Yt= Yt – Yt-1
 Yt=Value with time
 3 Transformation: This includes three different methods they are Power Transform, Square Root, and Log Transfer., most commonly used one is Log Transfer.
+
+## 1.Simple Moving Average(smoothening algorithm):https://www.youtube.com/watch?v=ECBHH0J2N1A&t=1s
+Simple moving average we use rolling window to calulate the next values ex if window size is 2 we take first 2 values and put that as result in 3 value and window go on moving to next value.
+rolling function is used to do MA where we need to add window size and periods where window size is how many values to select for calculating ma and min periods to select how many initial values to keep as NAN.
+df['Open:30 days rolling']=df_tesla['Open'].rolling(30).mean()
+## Disadvantages
+1.gives similar importance to all the values.
+## 2. Cumulative moving Average-in cumulative moving average we consider all the past values to calculate future values by taking average of all past values.
+we use expanding method to calculate cumulative moving average
+## 3.EWMA-Exponential Weighted Moving Average
+In time series we need to give more importance to recent data so exponetial smoothing is used.
+
+
