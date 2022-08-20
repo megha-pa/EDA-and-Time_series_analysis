@@ -48,8 +48,14 @@ df['Open:30 days rolling']=df_tesla['Open'].rolling(30).mean()
 ## 2. Cumulative moving Average-
 In cumulative moving average we consider all the past values to calculate future values by taking average of all past values.
 we use expanding method to calculate cumulative moving average
-## 3.EWMA-Exponential Weighted Moving Average
+## 3.EWMA-Exponential Moving Average
+https://corporatefinanceinstitute.com/resources/knowledge/trading-investing/exponential-moving-average-ema/
 In time series we need to give more importance to recent data so exponetial smoothing is used.
 
 df_tesla['EMA_0.1']=df_tesla['Open'].ewm(alpha=0.1,adjust=False).mean()##alpha is the smoothening factor
 ![image](https://user-images.githubusercontent.com/86820581/185751868-43339541-3293-4ddb-a1b3-f373af90edb8.png)
+
+## 4 EWMA-Exponential Weighted Moving Average
+https://www.wallstreetmojo.com/ewma/
+
+
