@@ -1,5 +1,5 @@
-##Links
-####This repository tells about how we can do EDA and perform forecasting on timeseries data.
+#Links
+#This repository tells about how we can do EDA and perform forecasting on timeseries data.
 ##What is timeseries?
 A time series is nothing but a sequence of various data points that occurred in a successive order for a given period of time.
 ##Components of Time Series Analysis
@@ -167,16 +167,6 @@ df_temperature.head()
 Head of Dataframe
 df_temperature.info()
 Information of Data Frame
-# set index for year column
-df_temperature.set_index('Any', inplace=True)
-df_temperature.index.name = 'year'
-# Yearly average air temperature - calculation
-df_temperature['average_temperature'] = df_temperature.mean(axis=1)
-# drop unwanted columns and resetting the datafreame
-df_temperature = df_temperature[['average_temperature']]
-df_temperature.head()
-Average Temperature 
-# SMA over a period of 10 and 20 years 
 
 9.3 Exponential Moving Average (EMA)
 EMA is mainly used to identify trends and to filter out noise. The weight of elements is decreased gradually over time. This means It gives weight to recent data points, not historical ones. Compared with SMA, the EMA is faster to change and more sensitive.
