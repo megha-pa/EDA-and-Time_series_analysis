@@ -1,75 +1,32 @@
-## links
-https://www.analyticsvidhya.com/blog/2021/10/a-comprehensive-guide-to-time-series-analysis/
+## How to Perform EDA on Time Series Data
 
-#### This repository tells about how we can do EDA and perform forecasting on timeseries data.
-## What is timeseries?
-A time series is nothing but a sequence of various data points that occurred in a successive order for a given period of time.
-## Components of Time Series Analysis
-1.Trend: In which there is no fixed interval and any divergence within the given dataset is a continuous timeline. The trend would be Negative or Positive or Null Trend
-2.Seasonality: In which regular or fixed interval shifts within the dataset in a continuous timeline. Would be bell curve or saw tooth
-3.Cyclical: In which there is no fixed interval, uncertainty in movement and its pattern
-4.Irregularity: Unexpected situations/events/scenarios and spikes in a short time span.
-## What are the limitations of Time Series Analysis?
-1.Time series has the below-mentioned limitations, we have to take care of those during our analysis,
-2.Similar to other models, the missing values are not supported by TSA
-3.The data points must be linear in their relationship.
-4.Data transformations are mandatory, so a little expensive.
-5.Models mostly work on Uni-variate data.
-## Data Types of Time Series
-Let’s discuss the time series’ data types and their influence. While discussing TS data-types, there are two major types.
-#### 1 Stationary: A dataset should follow the below thumb rules, without having Trend, Seasonality, Cyclical, and Irregularity component of time series
-The MEAN value of them should be completely constant in the data during the analysis
-The VARIANCE should be constant with respect to the time-frame
-The COVARIANCE measures the relationship between two variables.
-#### 2 Non- Stationary: This is just the opposite of Stationary.
-Methods to check Stationarity 
-During the TSA model preparation workflow, we must access if the given dataset is Stationary or NOT. Using Statistical and Plots test.
-#### Statistical Test: There are two tests available to test if the dataset is Stationary or NOT.
-1 Augmented Dickey-Fuller (ADF) Test or Unit Root Test: The ADF test is the most popular statistical test and with the following assumptions.
-Null Hypothesis (H0): Series is non-stationary
-Alternate Hypothesis (HA): Series is stationary
-p-value >0.05 Fail to reject (H0)
-p-value <= 0.05 Accept (H1)
-2 Kwiatkowski–Phillips–Schmidt–Shin (KPSS): these tests are used for testing a NULL Hypothesis (HO), that will perceive the time-series, as stationary around a deterministic trend against the alternative of a unit root. Since TSA looking for Stationary Data for its further analysis, we have to make sure that the dataset should be stationary.
-#### Converting Non- stationary into stationary
-Let’s discuss quickly how to convert Non- stationary into stationary for effective time series modeling. There are two major methods available for this conversion.
-1 Detrending: It involves removing the trend effects from the given dataset and showing only the differences in values from the trend. it always allows the cyclical patterns to be identified.
-2 Differencing: This is a simple transformation of the series into a new time series, which we use to remove the series dependence on time and stabilize the mean of the time series, so trend and seasonality are reduced during this transformation.
-Yt= Yt – Yt-1
-Yt=Value with time
-3 Transformation: This includes three different methods they are Power Transform, Square Root, and Log Transfer., most commonly used one is Log Transfer.
-## Models in Time Series
-1.Auto Arima
-2.SARIMA
-3.ARIMA
-4.ARMA
-5.MA
-6.Simple Exponential Smoothing
-7.Double Exponential Smoothing
-8.Triple Exponential Smoothing
-9.FB prophet
-## 1.Simple Moving Average(smoothening algorithm):https://www.youtube.com/watch?v=ECBHH0J2N1A&t=1s
-Simple moving average we use rolling window to calulate the next values ex if window size is 2 we take first 2 values and put that as result in 3 value and window go on moving to next value.
-rolling function is used to do MA where we need to add window size and periods where window size is how many values to select for calculating ma and min periods to select how many initial values to keep as NAN.
-df['Open:30 days rolling']=df_tesla['Open'].rolling(30).mean()
-## Disadvantages
-1.gives similar importance to all the values.
-## 2. Cumulative moving Average-
-In cumulative moving average we consider all the past values to calculate future values by taking average of all past values.
-we use expanding method to calculate cumulative moving average
-## 3.EWMA-Exponential Moving Average
-https://corporatefinanceinstitute.com/resources/knowledge/trading-investing/exponential-moving-average-ema/
-In time series we need to give more importance to recent data so exponetial smoothing is used.
+References-
+1.https://towardsai.net/p/data-visualization/statistical-modeling-of-time-series-data-part-2-exploratory-data-analysis
+2.https://blog.jovian.ai/time-series-analysis-data-exploration-and-visualization-9dbede5cbb8d
 
-df_tesla['EMA_0.1']=df_tesla['Open'].ewm(alpha=0.1,adjust=False).mean()##alpha is the smoothening factor
-![image](https://user-images.githubusercontent.com/86820581/185751868-43339541-3293-4ddb-a1b3-f373af90edb8.png)
+This repository Explains about how we can performed EDA on Time series data so that we can build models on this data.EDA on timeseries data require few more processing steps which are explained below-
 
-## 4 EWMA-Exponential Weighted Moving Average
-https://www.wallstreetmojo.com/ewma/
-df_tesla['EMA_5days']=df_tesla['Open'].ewm(span=5).mean()##to give multiplier effect make it as EWMA
+## what is time series data?
+A Time Series Data is simply a sequence of data in chronological order (i.e following the order of occurrence) which is used by businesses to analyze past data and make better decisions.
 
-## ARIMA
-Auto Regressive Integrated Moving Average
-https://www.machinelearningplus.com/time-series/arima-model-time-series-forecasting-python/
+## Steps in Time series EDA-
+#### 1.Understand the data
+In EDA we try to understand our overall data by visualising and applying some stats on it
+1.Read the data and merge different dataset and create a flat file.
+2.check for missing values and fill those values with suitable values such as mean,mode,median or if missing values are less then drop the columns
+3.Perform the feature engineering such as feature transformation,finding correlating,feature scaling etc.
+4.Check distribution of data
+#### 2.Data Decomposition (Additive and Multiplicative)
+Data decomposition is the process of breaking the time series into 3 components: Trend, Seasonality, and Noise. Doing so gives us insights into repeating patterns in our data that could be used during model building. In python, the statsmodels library is used to do this decomposition. The library provides support for 2 types of decomposition: Additive and Multiplicative.
+#### 3 Correlation Plots (Autocorrelation and Partial Autocorrelation Plot: ACF&PACF)
+These are important plots for time series. They graphically summarize the strength of the relationships of observations in time series.In Autocorrelation, we calculate the correlation for time-series observations with previous time steps, called lags. Because the correlation of the time series observations is calculated with values of the same series at previous times, hence are called a serial correlation or an autocorrelation.
+A partial autocorrelation is a summary of the relationship between an observation in a time series with observations at prior time steps with the relationships of intervening observations removed. Meaning… The effects of the lags in between are removed and we can see the direct impact a previous observation has on the value to be predicted at a time(t).PACF can be computed by regression.Regression is a statistical method to determine the strength and character of the relationship between one dependant value and other variables that are independent.
+#### 4 Check data is stationary or not
+1) Summary Statistics:
+One of the most basic methods to check if our data is stationary is to the summary statistics. This is not much of an accurate way, sometimes the outcome of this test can be a statistical fluke.
 
+2) Dickey-Fuller test:
+Another method to check for stationarity in our data is statistical tests. I have used The Augmented Dickey-Fuller test which is called a unit root test. The null hypothesis of the test is that the time series can be represented by a unit root concluding our data as not stationary.
 
+p-value > 0.05: Fail to reject the null hypothesis (H0), the data has a unit root and is non-stationary.
+p-value <= 0.05: Reject the null hypothesis (H0), the data does not have a unit root and is stationary.
